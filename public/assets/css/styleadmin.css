@@ -378,34 +378,8 @@ main {
 	padding: 24px 20px 20px 20px;
 }
 
-main .title {
-	font-size: 28px;
-	font-weight: 600;
-	margin-bottom: 10px;
-}
-
-main .breadcrumbs {
-	display: flex;
-	grid-gap: 6px;
-}
-
-main .breadcrumbs li,
-main .breadcrumbs li a {
-	font-size: 14px;
-}
-
-main .breadcrumbs li a {
-	color: var(--blue);
-}
-
-main .breadcrumbs li a.active,
-main .breadcrumbs li.divider {
-	color: var(--dark-grey);
-	pointer-events: none;
-}
-
 main .info-data {
-	margin-top: 36px;
+	margin-top: 18px;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 	grid-gap: 20px;
@@ -416,6 +390,7 @@ main .info-data .card {
 	border-radius: 10px;
 	background: var(--light);
 	box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
+	height: min-content;
 }
 
 main .card .head {
