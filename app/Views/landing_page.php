@@ -36,7 +36,7 @@
           <li class="nav-item"><a class="nav-link" href="#">Artikel</a></li>
           <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
         </ul>
-        <a href="#" class="btn btn-sm btn-primary ml-lg-4">Mulai</a>
+        <a href="<?= base_url('sign_in')?>" class="btn btn-sm btn-primary ml-lg-4">Mulai</a>
       </div>
     </nav>
   </div>

@@ -4,8 +4,15 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index(): string
+    public function index()
     {
+        if(logged_in()){
+            if(in_groups('admin')){
+                return redirect()->to(base_url('admin'));
+            }else if(in_groups('user')){
+                return redirect()->to(base_url('user'));
+            }
+        }
         return view('landing_page');
     }
     public function login(): string

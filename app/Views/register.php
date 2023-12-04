@@ -36,29 +36,35 @@
                      <h2>Daftar</h2>
                      <p>Jangan lupa DAFTAR dulu yaa</p>
                 </div>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control form-control-lg bg-light fs-6" placeholder="Email">
-                </div>
-                <div class="input-group mb-3">
-                    <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Nama">
-                </div>
-                <div class="input-group mb-3">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Jenis Kelamin</option>
-                        <option value="1">Laki-laki</option>
-                        <option value="2">Perempuan</option>
-                    </select>
-                </div>
-                
-                <div class="input-group mb-3">
-                    <input type="password" class="form-control form-control-lg bg-light fs-6" placeholder="Password">
-                </div>
-                <div class="input-group mb-3">
-                    <button class="btn btn-lg w-100 fs-6 custom-btn">Daftar</button>
-                </div>
-                <div class="input-group mb-3">
-                    <button class="btn btn-lg btn-light w-100 fs-6"><img src="images/google.png" style="width:20px" class="me-2"><small>Daftar dengan Google</small></button>
-                </div>
+                <form action="<?= url_to('register') ?>" method="post">
+                    <?= csrf_field() ?>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control form-control-lg bg-light fs-6 <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Email" name="email">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control form-control-lg bg-light fs-6 <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" name="username" placeholder="Username">
+                    </div>
+                    <div class="input-group mb-3">
+                        <select class="form-select" name="jenis_kelamin" id="jenis_kelamin" aria-label="Default select example">
+                            <option selected>Jenis Kelamin</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" class="form-control form-control-lg bg-light fs-6 <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password">
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <input type="password" name="pass_confirm" class="form-control form-control-lg bg-light fs-6 <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" placeholder="Confirm Password">
+                    </div>
+                    <div class="input-group mb-3">
+                        <button type="submit" class="btn btn-lg w-100 fs-6 custom-btn">Daftar</button>
+                    </div>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-lg btn-light w-100 fs-6"><img src="images/google.png" style="width:20px" class="me-2"><small>Daftar dengan Google</small></button>
+                    </div>
+                </form>
           </div>
        </div> 
 
