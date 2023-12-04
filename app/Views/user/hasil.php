@@ -10,7 +10,7 @@
     <script src="<?=base_url('https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js')?>" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
 
-
+    <link rel="stylesheet" href="<?= base_url ('assets/css/tabeluser.css') ?>">
 	<link rel="stylesheet" href="<?= base_url ('assets/css/styleadmin.css') ?>">
 	<title>AdminSite</title>
 </head>
