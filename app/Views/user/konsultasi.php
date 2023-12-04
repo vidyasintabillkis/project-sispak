@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="#" class="brand"><i class='bx bxs-smile icon'></i> XX</a>
@@ -29,7 +28,6 @@
         </ul>
     </section>
     <!-- SIDEBAR -->
-
     <!-- NAVBAR -->
     <section id="content">
         <!-- NAVBAR -->

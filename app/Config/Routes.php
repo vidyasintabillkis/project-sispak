@@ -8,14 +8,17 @@ use CodeIgniter\Router\RouteCollection;
 
 
 $routes->get('/', 'Home::index');
-$routes->get('/login', 'Home::login');
-$routes->get('/register', 'Home::register');
+$routes->get('/sign_in', 'Home::login');
+$routes->get('/sign_up', 'Home::register');
 
 //admin
-$routes->get('/admin', 'Home::dashboard_admin');
-$routes->get('/gejala', 'GejalaController::admin_datagejala');
-$routes->get('/kerusakan', 'KerusakanController::admin_datakerusakan');
-$routes->get('/solusi', 'SolusiController::admin_datasolusi');
+
+
+//admin
+$routes->get('/admin', 'Home::dashboard_admin', ['filter' => 'role:admin']);
+$routes->get('/gejala', 'GejalaController::admin_datagejala', ['filter' => 'role:admin']);
+$routes->get('/kerusakan', 'KerusakanController::admin_datakerusakan', ['filter' => 'role:admin']);
+$routes->get('/solusi', 'SolusiController::admin_datasolusi', ['filter' => 'role:admin']);
 $routes->get('/akun', 'Home::akun');
 $routes->get('/artikel', 'ArtikelController::artikel');
 
@@ -34,8 +37,8 @@ $routes->get('/solusi/edit', 'SolusiController::edit');
 //crud artikel
 
 //user
-$routes->get('/', 'UserController::index');
-$routes->get('/user', 'UserController::dashboard_user');
-$routes->get('/konsultasi', 'UserController::konsultasi');
-$routes->get('/riwayathasil', 'UserController::riwayathasil');
-$routes->get('/hasil', 'UserController::hasil');
+// $routes->get('/', 'UserController::index');
+$routes->get('/user', 'UserController::dashboard_user', ['filter' => 'role:user']);
+$routes->get('/konsultasi', 'UserController::konsultasi', ['filter' => 'role:user']);
+$routes->get('/riwayathasil', 'UserController::riwayathasil', ['filter' => 'role:user']);
+$routes->get('/hasil', 'UserController::hasil', ['filter' => 'role:user']);

@@ -29,7 +29,6 @@
         </ul>
     </section>
     <!-- SIDEBAR -->
-
     <!-- NAVBAR -->
     <section id="content">
         <!-- NAVBAR -->
@@ -46,7 +45,6 @@
             </div>
         </nav>
         <!-- NAVBAR -->
-
         <!-- MAIN -->
         <main>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
