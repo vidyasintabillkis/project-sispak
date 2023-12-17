@@ -12,27 +12,36 @@ $routes->get('/sign_in', 'Home::login');
 $routes->get('/sign_up', 'Home::register');
 
 //admin
-
-
-//admin
 $routes->get('/admin', 'Home::dashboard_admin', ['filter' => 'role:admin']);
-$routes->get('/gejala', 'GejalaController::admin_datagejala', ['filter' => 'role:admin']);
-$routes->get('/kerusakan', 'KerusakanController::admin_datakerusakan', ['filter' => 'role:admin']);
-$routes->get('/solusi', 'SolusiController::admin_datasolusi', ['filter' => 'role:admin']);
+$routes->get('/gejala', 'GejalaController::index', ['filter' => 'role:admin']);
+$routes->get('/kerusakan', 'KerusakanController::index', ['filter' => 'role:admin']);
+$routes->get('/solusi', 'SolusiController::index', ['filter' => 'role:admin']);
 $routes->get('/akun', 'Home::akun');
 $routes->get('/artikel', 'ArtikelController::artikel');
 
 //crud gejala
-$routes->get('/gejala/tambah', 'GejalaController::tambah');
-$routes->get('/gejala/edit', 'GejalaController::edit');
+$routes->get('/gejala/tambah_gejala', 'GejalaController::tambah', ['filter' => 'role:admin']);
+$routes->post('/gejala/tambah_gejala/store', 'GejalaController::store', ['filter' => 'role:admin']);
+$routes->get('/gejala/datagejala', 'GejalaController::index', ['filter' => 'role:admin']);
+$routes->get('/gejala/datagejala/(:any)/edit', 'GejalaController::edit/$1');
+$routes->put('/gejala/datagejala/(:any)', 'GejalaController::update/$1');
+$routes->delete('/gejala/datagejala/(:any)', 'GejalaController::destroy/$1');
 
 //crud kerusakan
-$routes->get('/kerusakan/tambah', 'KerusakanController::tambah');
-$routes->get('/kerusakan/edit', 'KerusakanController::edit');
+$routes->get('/kerusakan/tambah_kerusakan', 'KerusakanController::tambah', ['filter' => 'role:admin']);
+$routes->post('/kerusakan/tambah_kerusakan/store', 'KerusakanController::store', ['filter' => 'role:admin']);
+$routes->get('/kerusakan/datakerusakan', 'KerusakanController::index', ['filter' => 'role:admin']);
+$routes->get('/kerusakan/datakerusakan/(:any)/edit', 'KerusakanController::edit/$1');
+$routes->put('/kerusakan/datakerusakan/(:any)', 'KerusakanController::update/$1');
+$routes->delete('/kerusakan/datakerusakan/(:any)', 'KerusakanController::destroy/$1');
 
 //crud solusi
-$routes->get('/solusi/tambah', 'SolusiController::tambah');
-$routes->get('/solusi/edit', 'SolusiController::edit');
+$routes->get('/solusi/tambah_solusi', 'SolusiController::tambah', ['filter' => 'role:admin']);
+$routes->post('/solusi/tambah_solusi/store', 'SolusiController::store', ['filter' => 'role:admin']);
+$routes->get('/solusi/datasolusi', 'SolusiController::index', ['filter' => 'role:admin']);
+$routes->get('/solusi/datasolusi/(:any)/edit', 'SolusiController::edit/$1');
+$routes->put('/solusi/datasolusi/(:any)', 'SolusiController::update/$1');
+$routes->delete('/solusi/datasolusi/(:any)', 'SolusiController::destroy/$1');
 
 //crud artikel
 

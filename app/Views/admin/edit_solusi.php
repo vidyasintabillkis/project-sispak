@@ -53,23 +53,32 @@
         <!-- NAVBAR -->
 
         <main>
-            <div class="container mt-5">
-                <div class="row d-flex justify-content-center align-items-center">
-                    <div class="col-md-8">
-                        <form id="regForm">
-                            <h1 id="register">Ubah Data Solusi</h1><br>
-                            <div class="tab">
+        <div class="container mt-5">
+                            <div class="container mt-5">
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <div class="col-md-8">
+                                    <form id="regForm" action="<?= base_url('solusi/datasolusi/' . $solusi['id']) ?>" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="_method" value="PUT">
+                                        <?= csrf_field() ?>
+                                        <h1 id="register">Ubah Data Solusi</h1><br>
+
                                 <h6>Kode Solusi</h6>
                                 <p>
-                                    <input oninput="this.className = ''" name="fname">
+                                    <input oninput="this.className = ''" class="form-control <?= ($validation->hasError('kodeSolusi')) ? 'is-invalid' : ''; ?>" placeholder="Kode Solusi" aria-label="Kode Solusi" aria-describedby="basic-addon1" name="kodeSolusi" value="<?= $solusi['kodeSolusi']?>" required>
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('kodeSolusi') ?>
+                                    </div>
                                 </p>
                                 <h6>Nama Solusi</h6>
                                 <p>
-                                    <input oninput="this.className = ''" name="fname">
+                                    <input oninput="this.className = ''" class="form-control <?= ($validation->hasError('namaSolusi')) ? 'is-invalid' : ''; ?>" placeholder="Nama Solusi" aria-label="Nama Solusi" aria-describedby="basic-addon1" name="namaSolusi" value="<?= $solusi['namaSolusi']?>" required>
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('namaSolusi') ?>
+                                    </div>
                                 </p>
                                 <div style="overflow:auto;" id="nextprevious">
                                     <div style="float:right;">
-                                        <a class="btn btn-custom btn-sm" href="<?= base_url('/solusi') ?>" role="button">Simpan</a>
+                                        <button type="submit" class="btn btn-custom btn-sm" role="button">Simpan</button>
                                     </div>
                                 </div>
                             </div>
