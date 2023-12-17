@@ -54,22 +54,32 @@
 
         <main>
             <div class="container mt-5">
-                <div class="row d-flex justify-content-center align-items-center">
-                    <div class="col-md-8">
-                        <form id="regForm">
-                            <h1 id="register">Ubah Data Gejala</h1><br>
-                            <div class="tab">
+                            <div class="container mt-5">
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <div class="col-md-8">
+                                    <form id="regForm" action="<?= base_url('gejala/datagejala/' . $gejala['id']) ?>" method="post" enctype="multipart/form-data">
+                                        <input type="hidden" name="_method" value="PUT">
+                                        <?= csrf_field() ?>
+                                        <h1 id="register">Ubah Data Gejala</h1><br>
+
+
                                 <h6>Kode Gejala</h6>
                                 <p>
-                                    <input oninput="this.className = ''" name="fname">
+                                    <input oninput="this.className = ''" class="form-control <?= ($validation->hasError('kodeGejala')) ? 'is-invalid' : ''; ?>" placeholder="Kode Gejala" aria-label="Kode Gejala" aria-describedby="basic-addon1" name="kodeGejala" value="<?= $gejala['kodeGejala']?>" required>
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('kodeGejala') ?>
+                                    </div>
                                 </p>
                                 <h6>Nama Gejala</h6>
                                 <p>
-                                    <input oninput="this.className = ''" name="fname">
+                                    <input oninput="this.className = ''" class="form-control <?= ($validation->hasError('namaGejala')) ? 'is-invalid' : ''; ?>" placeholder="Nama Gejala" aria-label="Nama Gejala" aria-describedby="basic-addon1" name="namaGejala" value="<?= $gejala['namaGejala']?>" required>
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('namaGejala') ?>
+                                    </div>
                                 </p>
                                 <div style="overflow:auto;" id="nextprevious">
                                     <div style="float:right;">
-                                        <a class="btn btn-custom btn-sm" href="<?= base_url('/gejala') ?>" role="button">Simpan</a>
+                                        <button type="submit" class="btn btn-custom btn-sm" role="button">Simpan</button>
                                     </div>
                                 </div>
                             </div>

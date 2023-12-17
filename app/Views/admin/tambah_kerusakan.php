@@ -53,26 +53,34 @@
         <!-- NAVBAR -->
 
         <main>
-            <div class="container mt-5">
+        <div class="container mt-5">
                 <div class="row d-flex justify-content-center align-items-center">
                     <div class="col-md-8">
-                        <form id="regForm">
+                        <form id="regForm" action="<?=base_url('/kerusakan/tambah_kerusakan/store')?>" method="post" enctype="multipart/form-data">
                             <h1 id="register">Tambah Data Kerusakan</h1><br>
+                            
                             <div class="tab">
                                 <h6>Kode Kerusakan</h6>
                                 <p>
-                                    <input oninput="this.className = ''" name="fname">
+                                    <input oninput="this.className = ''" class="form-control <?= ($validation->hasError('kodeKerusakan')) ? 'is-invalid' : ''; ?>" placeholder="Kode Kerusakan" aria-label="Kode Kerusakan" aria-describedby="basic-addon1" name="kodeKerusakan" required>
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('kodeKerusakan') ?>
+                                    </div>
                                 </p>
                                 <h6>Nama Kerusakan</h6>
                                 <p>
-                                    <input oninput="this.className = ''" name="fname">
+                                    <input oninput="this.className = ''" class="form-control <?= ($validation->hasError('namaKerusakan')) ? 'is-invalid' : ''; ?>" placeholder="Nama Kerusakan" aria-label="Nama Kerusakan" aria-describedby="basic-addon1" name="namaKerusakan" required>
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('namaKerusakan') ?>
+                                    </div>
                                 </p>
                                 <div style="overflow:auto;" id="nextprevious">
                                     <div style="float:right;">
-                                        <a class="btn btn-custom btn-sm" href="<?= base_url('/kerusakan') ?>" role="button">Simpan</a>
+                                        <button type="submit" class="btn btn-custom btn-sm" >Simpan</button>
                                     </div>
                                 </div>
                             </div>
+                            <!-- </form> -->
                         </form>
                     </div>
                 </div>

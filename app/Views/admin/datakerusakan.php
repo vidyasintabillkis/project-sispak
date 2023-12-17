@@ -68,7 +68,7 @@
 						<div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
 
 							<div>
-								<a href="<?= base_url('/kerusakan/tambah') ?>" class="btn btn-primary"><i class="bx bx-plus me-1"></i>Tambah Kerusakan</a>
+								<a href="<?= base_url('/kerusakan/tambah_kerusakan') ?>" class="btn btn-primary"><i class="bx bx-plus me-1"></i>Tambah Kerusakan</a>
 							</div>
 						</div>
 					</div>
@@ -87,51 +87,31 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>1</td>
-											<td>G001</td>
-											<td>Sariawan</td>
+										<?php $i = 1; ?>
+											<?php foreach ($kerusakan as $kerusakan): ?>
+
+											<tr>
+											<td><?= $i ?></td>
+											<td><?= $kerusakan['kodeKerusakan'] ?></td>
+											<td><?= $kerusakan['namaKerusakan'] ?></td>
 											<td>
 												<ul class="list-inline mb-0">
 													<li class="list-inline-item">
-														<a href="<?= base_url('/kerusakan/edit') ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
+														<a href="<?= base_url('/kerusakan/datakerusakan/' . $kerusakan['id'] . '/edit') ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
 													</li>
-													<li class="list-inline-item">
-														<a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
-													</li>
+
+													<form action="<?= base_url('kerusakan/datakerusakan/' . $kerusakan['id']) ?>" method="post">
+														<input type="hidden" name="_method" value="DELETE">
+														<?= csrf_field() ?>
+														<button type="submit" class="btn btn-link" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete">
+															<i class="bx bx-trash-alt font-size-18 text-danger"></i>
+														</button>
+													</form>
 												</ul>
 											</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>G002</td>
-											<td>Sariawan</td>
-											<td>
-												<ul class="list-inline mb-0">
-													<li class="list-inline-item">
-														<a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
-													</li>
-													<li class="list-inline-item">
-														<a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
-													</li>
-												</ul>
-											</td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>G003</td>
-											<td>Sariawan</td>
-											<td>
-												<ul class="list-inline mb-0">
-													<li class="list-inline-item">
-														<a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
-													</li>
-													<li class="list-inline-item">
-														<a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
-													</li>
-												</ul>
-											</td>
-										</tr>
+											</tr>
+										<?php $i++; ?>
+                        				<?php endforeach; ?>
 									</tbody>
 								</table>
 							</div>
