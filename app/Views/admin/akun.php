@@ -9,7 +9,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="<?= base_url('assets/css/styleadmin.css') ?>">
 	<link rel="stylesheet" href="<?= base_url('assets/css/tabeluser.css') ?>">
-	<title>AdminSite</title>
+	<title>Data Akun</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
 				</ul>
 				<a href="<?= base_url('/akun') ?>" class="active"><i class='bx bxs-notepad icon'></i> Kelola Akun </a>
 				<a href="<?= base_url('/artikel') ?>"><i class='bx bxs-notepad icon'></i> Artikel </a>
-				<a href="#"><i class='bx bxs-notepad icon'></i> Keluar </a>
+				<a href="<?= base_url('logout') ?>"><i class='bx bxs-notepad icon'></i> Keluar </a>
 			</li>
 		</ul>
 	</section>
@@ -45,9 +45,6 @@
 			<span class="divider"></span>
 			<div class="profile">
 				<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
-				<ul class="profile-link">
-					<li><a href="#"><i class='bx bxs-log-out-circle'></i> Keluar</a></li>
-				</ul>
 			</div>
 		</nav>
 		<!-- NAVBAR -->
@@ -61,7 +58,7 @@
 				<div class="row align-items-center">
 					<div class="col-md-6">
 						<div class="mb-3">
-							<h5 class="card-title">Data Pengguna <span class="text-muted fw-normal ms-2">(834)</span></h5>
+							<h5 class="card-title">Data Pengguna</h5>
 						</div>
 					</div>
 				</div>
@@ -79,51 +76,22 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>1</td>
-											<td>vidyasinta@gmail.com</td>
-											<td>Vidya</td>
-											<td>Perempuan</td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>vidyasinta@gmail.com</td>
-											<td>Vidya</td>
-											<td>Perempuan</td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>vidyasinta@gmail.com</td>
-											<td>Vidya</td>
-											<td>Perempuan</td>
-										</tr>
-									</tbody>
+                                        <?php
+                                        $i = 1;
+                                        foreach ($akun as $akun) {
+                                        ?>
+                                            <tr>
+                                                <td><?= $i++ ?></td>
+                                                <td><?= $akun->email ?></td>
+                                                <td><?= $akun->username?></td>
+                                                <td><?= $akun->jenis_kelamin?></td>
+                                            </tr>
+                                        <?php
+                                        }
+                                        ?>
+                                    </tbody>
 								</table>
 							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row g-0 align-items-center pb-4">
-					<div class="col-sm-6">
-						<div>
-							<p class="mb-sm-0">Showing 1 to 10 of 57 entries</p>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="float-sm-end">
-							<ul class="pagination mb-sm-0">
-								<li class="page-item disabled">
-									<a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
-								</li>
-								<li class="page-item active"><a href="#" class="page-link">1</a></li>
-								<li class="page-item"><a href="#" class="page-link">2</a></li>
-								<li class="page-item"><a href="#" class="page-link">3</a></li>
-								<li class="page-item"><a href="#" class="page-link">4</a></li>
-								<li class="page-item"><a href="#" class="page-link">5</a></li>
-								<li class="page-item">
-									<a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
-								</li>
-							</ul>
 						</div>
 					</div>
 				</div>

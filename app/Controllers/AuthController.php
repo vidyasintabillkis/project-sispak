@@ -146,7 +146,7 @@ class AuthController extends Controller
         $users = model(UserModel::class);
 
         // Validate basics first since some password rules rely on these fields
-        $rules = config('Validation')->registrationRules ?? [
+        $rules = config('Validation')->cd ?? [
             'username' => 'required',
             'email'    => 'required',
         ];

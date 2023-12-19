@@ -12,12 +12,14 @@ $routes->get('/sign_in', 'Home::login');
 $routes->get('/sign_up', 'Home::register');
 
 //admin
-$routes->get('/admin', 'Home::dashboard_admin', ['filter' => 'role:admin']);
+$routes->get('/admin', 'AkunController::dashboard_admin', ['filter' => 'role:admin']);
 $routes->get('/gejala', 'GejalaController::index', ['filter' => 'role:admin']);
 $routes->get('/kerusakan', 'KerusakanController::index', ['filter' => 'role:admin']);
 $routes->get('/solusi', 'SolusiController::index', ['filter' => 'role:admin']);
-$routes->get('/akun', 'Home::akun');
-$routes->get('/artikel', 'ArtikelController::artikel');
+$routes->get('/akun', 'AkunController::akun', ['filter' => 'role:admin']);
+$routes->resource('api', ['controller' => 'ArtikelController']);
+$routes->get('/artikel', 'ArtikelController::lihat', ['filter' => 'role:admin']);
+$routes->get('/lihat_artikel/(:any)', 'ArtikelController::lihat_artikel/$1', ['filter' => 'role:admin']);
 
 //crud gejala
 $routes->get('/gejala/tambah_gejala', 'GejalaController::tambah', ['filter' => 'role:admin']);
@@ -43,11 +45,10 @@ $routes->get('/solusi/datasolusi/(:any)/edit', 'SolusiController::edit/$1');
 $routes->put('/solusi/datasolusi/(:any)', 'SolusiController::update/$1');
 $routes->delete('/solusi/datasolusi/(:any)', 'SolusiController::destroy/$1');
 
-//crud artikel
-
 //user
-// $routes->get('/', 'UserController::index');
 $routes->get('/user', 'UserController::dashboard_user', ['filter' => 'role:user']);
 $routes->get('/konsultasi', 'UserController::konsultasi', ['filter' => 'role:user']);
 $routes->get('/riwayathasil', 'UserController::riwayathasil', ['filter' => 'role:user']);
 $routes->get('/hasil', 'UserController::hasil', ['filter' => 'role:user']);
+$routes->get('/article', 'ArtikelController::lihat2', ['filter' => 'role:user']);
+$routes->get('/lihat_article/(:any)', 'ArtikelController::lihat_article/$1', ['filter' => 'role:user']);

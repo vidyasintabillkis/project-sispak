@@ -9,7 +9,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="<?= base_url('assets/css/styleadmin.css') ?>">
 	<link rel="stylesheet" href="<?= base_url('assets/css/tabeluser.css') ?>">
-	<title>AdminSite</title>
+	<title>Dashboard</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
 				</ul>
 				<a href="<?= base_url('/akun') ?>"><i class='bx bxs-notepad icon'></i> Kelola Akun </a>
 				<a href="<?= base_url('/artikel') ?>"><i class='bx bxs-notepad icon'></i> Artikel </a>
-				<a href="#"><i class='bx bxs-notepad icon'></i> Keluar </a>
+				<a href="<?= base_url('logout') ?>"><i class='bx bxs-notepad icon'></i> Keluar </a>
 			</li>
 		</ul>
 	</section>
@@ -45,10 +45,7 @@
 			<span class="divider"></span>
 			<div class="profile">
 				<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
-				<ul class="profile-link">
-					<li><a href="#"><i class='bx bxs-user-circle icon' ></i> Profile</a></li>
-					<li><a href="<?= base_url('logout')?>"><i class='bx bxs-log-out-circle' ></i> Logout</a></li>
-				</ul>
+				
 			</div>
 		</nav>
 		<!-- NAVBAR -->
@@ -59,7 +56,7 @@
 				<div class="card">
 					<div class="head">
 						<div>
-							<h2>1500</h2>
+							<h2><?= $gejala ?></h2>
 							<p>Data Gejala</p>
 						</div>
 						<!-- <i class='bx bx-trending-up icon' ></i> -->
@@ -70,7 +67,7 @@
 				<div class="card">
 					<div class="head">
 						<div>
-							<h2>234</h2>
+							<h2><?= $kerusakan ?></h2>
 							<p>Data Kerusakan</p>
 						</div>
 						<!-- <i class='bx bx-trending-down icon down' ></i> -->
@@ -81,7 +78,7 @@
 				<div class="card">
 					<div class="head">
 						<div>
-							<h2>465</h2>
+							<h2><?= $solusi ?></h2>
 							<p>Data Solusi</p>
 						</div>
 						<!-- <i class='bx bx-trending-up icon' ></i> -->
@@ -89,131 +86,31 @@
 					<!-- <span class="progress" data-value="30%"></span>
 					<span class="label">30%</span> -->
 				</div>
-				<div class="card">
-					<div class="head">
-						<div>
-							<h2>235</h2>
-							<p>Pengunjung</p>
-						</div>
-						<!-- <i class='bx bx-trending-up icon' ></i> -->
-					</div>
-					<!-- <span class="progress" data-value="80%"></span>
-					<span class="label">80%</span> -->
-				</div>
 			</div>
 			<div class="data">
 				<div class="content-data">
-					<div class="container">
-						<div class="row align-items-center">
-							<div class="col-md-6">
-								<div class="mb-3">
-									<h5 class="card-title">Data Gejala</h5>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
-
-									<div>
-										<a href="<?= base_url('/solusi') ?>" class="btn btn-primary btn-sm">Detail</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="">
-									<div class="table-responsive">
-										<table class="table project-list-table table-nowrap align-middle table-borderless">
-											<thead>
-												<tr>
-													<th scope="col">No</th>
-													<th scope="col">Kode Gejala</th>
-													<th scope="col">Nama Gejala</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>1</td>
-													<td>G001</td>
-													<td>Sariawan</td>
-												</tr>
-												<tr>
-													<td>2</td>
-													<td>G002</td>
-													<td>Sariawan</td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>G003</td>
-													<td>Sariawan</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="content-data">
-					<div class="container">
-						<div class="row align-items-center">
-							<div class="col-md-6">
-								<div class="mb-3">
-									<h5 class="card-title">Data Pengguna</h5>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
-
-									<div>
-										<a href="<?= base_url('/akun') ?>" class="btn btn-primary btn-sm">Detail</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12">
-								<div class="">
-									<div class="table-responsive">
-										<table class="table project-list-table table-nowrap align-middle table-borderless">
-											<thead>
-												<tr>
-													<th scope="col">No</th>
-													<th scope="col">Email</th>
-													<th scope="col">Nama</th>
-													<th scope="col">Jenis Kelamin</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td>1</td>
-													<td>vidyasinta@gmail.com</td>
-													<td>Vidya</td>
-													<td>Perempuan</td>
-												</tr>
-												<tr>
-													<td>2</td>
-													<td>vidyasinta@gmail.com</td>
-													<td>Vidya</td>
-													<td>Perempuan</td>
-												</tr>
-												<tr>
-													<td>3</td>
-													<td>vidyasinta@gmail.com</td>
-													<td>Vidya</td>
-													<td>Perempuan</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="content-data">
-					<span>INI BUAT ARTIKEL TAPI BINGUNG t_t</span>
+					<h5>Judul Artikel</h5>
+					<table class="table project-list-table table-nowrap align-middle table-borderless">
+						<thead>
+							<tr>
+								<th scope="col">No</th>
+								<th scope="col">Judul</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+							$i = 1;
+							foreach ($data as $data) {
+							?>
+								<tr>
+									<td><?= $i++ ?></td>
+									<td><?= $data['judul'] ?></td>
+								</tr>
+							<?php
+							}
+							?>
+						</tbody>
+					</table>
 				</div>
 
 			</div>

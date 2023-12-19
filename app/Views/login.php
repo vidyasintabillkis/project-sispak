@@ -44,20 +44,17 @@
                     <div class="input-group mb-1">
                         <input type="password" class="form-control form-control-lg bg-light fs-6 <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password" name="password">
                     </div>
-                    <div class="input-group mb-5 d-flex justify-content-between">
-                        <div class="form-check">
+                    <div class="input-group mb-3 d-flex justify-content-between">
+                        <!-- <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="formCheck">
                             <label for="formCheck" class="form-check-label text-secondary"><small>Ingat saya</small></label>
                         </div>
                         <div class="forgot">
                             <small><a href="#">Lupa Password?</a></small>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-4">
                         <button type="submit" class="btn btn-lg w-100 fs-6 custom-btn">Masuk</button>
-                    </div>
-                    <div class="input-group mb-3">
-                        <button class="btn btn-lg btn-light w-100 fs-6"><img src="images/google.png" style="width:20px" class="me-2"><small>Sign In with Google</small></button>
                     </div>
                     <div class="row">
                         <small>Belum Punya Akun? <a href="<?=base_url("/sign_up")?>">Sign Up</a></small>
